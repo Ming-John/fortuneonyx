@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .neon-text {
+            font-size: 2em;
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #fff, 0 0 20px #00f, 0 0 30px #0ff;
+        }
+
+        nav {
+            /* ... your existing navigation styles ... */
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #111;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .neon-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .neon-list li {
+            margin-bottom: 5px;
+        }
+
+        .neon-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .neon-input,
+        .neon-button {
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .neon-input {
+            width: 100%;
+        }
+
+        .neon-button {
+            background-color: #0ff;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .neon-button:hover {
+            background-color: #00f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .neon-text-footer {
+            font-size: 1em;
+            text-shadow: 0 0 10px #fff, 0 0 20px #00f, 0 0 30px #0ff;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            .neon-text {
+                font-size: 1.5em;
+            }
+            .neon-button {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Additional styles for glowing neon effects */
+        .neon {
+            text-shadow: 0 0 10px #fff, 0 0 20px #00f, 0 0 30px #0ff;
+        }
+
+        .success-message {
+            display: inline-block;
+            background-color: #00ff00;
+            padding: 10px;
+            border-radius: 5px;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+        }
+    </style>
+    <!-- ... your existing head content ... -->
+</head>
+<body>
+
+    <header>
+        <h1 class="neon-text">Fortune's Website</h1>
+    </header>
+
+    <nav>
+        <!-- ... your existing navigation ... -->
+    </nav>
+
+    <section id="home" class="neon-section">
+        <h2>Welcome to Fortune's Website</h2>
+        <p>Your informant on any happenings in Kakamega School.</p>
+    </section>
+
+    <section id="about" class="neon-section">
+        <h2>About Us</h2>
+        <p>We are dedicated to providing high-quality assignment leaks.</p>
+    </section>
+
+    <section id="services" class="neon-section">
+        <h2>Our Services</h2>
+        <ul class="neon-list">
+            <li>Kakamega School Gossip</li>
+            <li>Assignment Leaks</li>
+            <li>Anything Else</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="neon-section">
+        <h2>Contact Us</h2>
+        <form action="/contact" method="post">
+            <label for="name" class="neon-label">Name:</label>
+            <input type="text" id="name" name="name" required class="neon-input">
+            <label for="email" class="neon-label">Email:</label>
+            <input type="email" id="email" name="email" required class="neon-input">
+            <label for="message" class="neon-label">Message:</label>
+            <textarea id="message" name="message" required class="neon-input"></textarea>
+            <button type="submit" class="neon-button">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p class="neon-text-footer">&copy; 2023 Fortune's Website. All rights reserved.</p>
+    </footer>
+
+    <!-- Script to handle success message and redirection -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const successMessageParam = urlParams.get('successMessage');
+
+            if (successMessageParam) {
+                showMessage(successMessageParam);
+            }
+
+            function showMessage(message) {
+                const successMessage = document.createElement('div');
+                successMessage.textContent = message;
+                successMessage.classList.add('neon-text', 'success-message');
+                document.body.appendChild(successMessage);
+
+                // Hide the message after 3 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+
+                    // Redirect back to the main page after hiding the message
+                    window.location.href = '/';
+                }, 3000);
+            }
+        });
+    </script>
+
+</body>
+</html>
